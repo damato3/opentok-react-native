@@ -27,7 +27,15 @@ public class OTSubscriberViewManager extends ViewGroupManager<OTSubscriberLayout
     @ReactProp(name = "streamId")
     public void setStreamId(OTSubscriberLayout view, String streamId) {
         if (streamId != null) {
-            view.createSubscriberView(streamId);
+            try {
+                Thread.sleep(1000);
+            }
+            catch(InterruptedException ex) {
+                Thread.currentThread().interrupt();
+            }
+            finally {
+                view.createSubscriberView(streamId);
+            }
         }
     }
 
